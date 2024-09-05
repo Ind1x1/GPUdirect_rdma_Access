@@ -6,7 +6,7 @@ This repository based by Mellanox/gpu_direct_rdma_access. Some errors in the cod
 ## Build Example Code:
 
 ```sh
-$ git clone git@github.com:Mellanox/gpu_direct_rdma_access.git
+$ git clone git@github.com:Ind1x1/GPUdirect_rdma_Access.git
 $ cd gpu_direct_rdma_access
 ```
 On the client machines
