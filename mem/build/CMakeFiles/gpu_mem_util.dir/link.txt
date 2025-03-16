@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -flto -shared  -o gpu_mem_util.cpython-310-x86_64-linux-gnu.so CMakeFiles/gpu_mem_util.dir/gpu_mem.cpp.o CMakeFiles/gpu_mem_util.dir/gpu_mem_util.c.o  -Wl,-rpath,/usr/local/cuda-12.6/targets/x86_64-linux/lib /usr/local/cuda-12.6/targets/x86_64-linux/lib/libcudart.so /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so -ldl /usr/lib/x86_64-linux-gnu/librt.a

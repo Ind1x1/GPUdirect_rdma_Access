@@ -1,3 +1,0 @@
-/home/user/code/GPUdirect_rdma_Access/mem/build/CMakeFiles/gpu_mem_util.dir
-/home/user/code/GPUdirect_rdma_Access/mem/build/CMakeFiles/edit_cache.dir
-/home/user/code/GPUdirect_rdma_Access/mem/build/CMakeFiles/rebuild_cache.dir
