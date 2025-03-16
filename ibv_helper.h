@@ -37,7 +37,7 @@
 #include <dirent.h>
 
 
-static int ibv_read_sysfs_file(const char *dir, const char *file,
+static int ibv_read_sysfs_file(const char *dir, const char *file,       //读取系统文件 
                         char *buf, size_t size)
 {
         char *path;
@@ -45,9 +45,9 @@ static int ibv_read_sysfs_file(const char *dir, const char *file,
         int len;
 
         if (asprintf(&path, "%s/%s", dir, file) < 0)
-                return -1;
+                return -1;              
 
-        fd = open(path, O_RDONLY | O_CLOEXEC);
+        fd = open(path, O_RDONLY | O_CLOEXEC);  // 打开文件
         if (fd < 0) {
                 free(path);
                 return -1;
@@ -81,6 +81,12 @@ static int ibv_read_sysfs_file(const char *dir, const char *file,
  */
 #define V1_TYPE "IB/RoCE v1"
 #define V2_TYPE "RoCE v2"
+/*
+        ibv_context 指针 -> INfiniband RoCE 上下文
+        prot_num -> 端口号
+        index -> GID索引
+        type -> GID类型
+ */
 static int ibv_query_gid_type(struct ibv_context *context, uint8_t port_num,
                 unsigned int index, enum ibv_gid_type *type)
 {
@@ -140,6 +146,13 @@ static int ibv_query_gid_type(struct ibv_context *context, uint8_t port_num,
         return 0;
 }
 
+/*
+        ibv_context 指针 -> INfiniband RoCE 上下文
+        prot_num -> 端口号
+        index -> GID索引
+        sgid -> GID
+        查询指定端口的GID
+ */
 int ibv_find_sgid_type(struct ibv_context *context, uint8_t port_num,
 		enum ibv_gid_type gid_type, int gid_family)
 {

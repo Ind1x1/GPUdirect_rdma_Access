@@ -79,12 +79,12 @@ extern int debug_fast_path;
 
 /*----------------------------------------------------------------------------*/
 
-static CUcontext cuContext;
+CUcontext cuContext;
 
 /*
  * Debug print information about all available CUDA devices
  */
-static void print_gpu_devices_info(void)
+void print_gpu_devices_info(void)    /*打印所有可用的CUDA设备信息*/
 {
     int     device_count = 0;
     int     i;
@@ -110,7 +110,7 @@ static void print_gpu_devices_info(void)
     }
 }
 
-static int get_gpu_device_id_from_bdf(const char *bdf)
+int get_gpu_device_id_from_bdf(const char *bdf)  /*从bdf中获取GPU设备ID*/
 {
     int     given_bus_id = 0;
     int     given_device_id = 0;
@@ -153,7 +153,7 @@ static int get_gpu_device_id_from_bdf(const char *bdf)
     return -1;
 }
 
-static void *init_gpu(size_t gpu_buf_size, const char *bdf)
+void *init_gpu(size_t gpu_buf_size, const char *bdf) /*初始化GPU*/
 {
     const size_t    gpu_page_size = 64*1024;
     size_t          aligned_size;
@@ -210,7 +210,7 @@ static void *init_gpu(size_t gpu_buf_size, const char *bdf)
     return ((void*)d_A);
 }
 
-static int free_gpu(void *gpu_buff)
+int free_gpu(void *gpu_buff)     /*释放GPU*/
 {
     CUdeviceptr d_A = (CUdeviceptr) gpu_buff;
 
@@ -228,6 +228,7 @@ static int free_gpu(void *gpu_buff)
 /****************************************************************************************
  * Memory allocation on CPU or GPU according to HAVE_CUDA pre-compile option and use_cuda flag
  * Return value: Allocated buffer pointer (if success), NULL (if error)
+ * 根据HAVE_COUDA预编译选项和use_cuda标志在CPU或GPU上分配内存
  ****************************************************************************************/
 void *work_buffer_alloc(size_t length, int use_cuda, const char *bdf)
 {

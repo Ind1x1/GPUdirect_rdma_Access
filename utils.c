@@ -46,14 +46,14 @@ int get_addr(char *dst, struct sockaddr *addr)
         struct addrinfo *res;
         int ret;
 
-        ret = getaddrinfo(dst, NULL, NULL, &res);
+        ret = getaddrinfo(dst, NULL, NULL, &res);       // 解析主机名和IP地址函数       &res结构体指针
         if (ret) {
                 printf("getaddrinfo failed (%s) - invalid hostname or IP address\n", gai_strerror(ret));
                 return ret;
         }
 
         if (res->ai_family == PF_INET)
-                memcpy(addr, res->ai_addr, sizeof(struct sockaddr_in));
+                memcpy(addr, res->ai_addr, sizeof(struct sockaddr_in)); 
         else if (res->ai_family == PF_INET6)
                 memcpy(addr, res->ai_addr, sizeof(struct sockaddr_in6));
         else

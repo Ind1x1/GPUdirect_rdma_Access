@@ -77,6 +77,7 @@ struct rdma_task_attr {
         uint64_t                 wr_id;
 };
 /*
+ * 打开一个RDMA device 并分配所需的资源
  * Open a RDMA device and allocated requiered resources.
  * find the capable RDMA device based on the 'addr' as an ip address
  * of the RDMA device selected to preform the RDMA operations.
@@ -107,6 +108,7 @@ struct rdma_buffer *rdma_buffer_reg(struct rdma_device *device, void *addr, size
 void rdma_buffer_dereg(struct rdma_buffer *buffer);
 
 /*
+ * 获取 RDMA 缓冲区地址的描述字符串表示
  * Get a rdma_buffer address description string representations
  *
  * The Client application should pass this description string to the

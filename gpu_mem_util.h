@@ -37,6 +37,18 @@
 extern "C" {
 #endif
 
+#ifdef HAVE_CUDA
+
+void print_gpu_devices_info(void);
+
+int get_gpu_device_id_from_bdf(const char *bdf);
+
+void *init_gpu(size_t gpu_buf_size, const char *bdf);
+
+int free_gpu(void *gpu_buff);
+
+#endif //HAVE_CUDA
+
 /*
  * Memory allocation on CPU or GPU according to HAVE_CUDA pre-compile option and use_cuda flag
  *
